@@ -2,62 +2,39 @@ Doxmate 不再为文档而发愁 [![Build Status](https://secure.travis-ci.org/J
 ======================
 ## 来源
 过去通常要自己维护API文档，这会是一件比较蛋疼的事情。所幸我们有[dox](https://github.com/visionmedia/dox)，dox可以帮我们解析注解。但是dox不能帮我们任意生成文档。于是就有了doxmate，doxmate基于dox的注解对象，加入模板。在遵循Github和CommonJS的约定后，doxmate可以帮你的模块包快速生成文档。
-
 ## Installation
-安装doxmate为全局工具：
-
+安装
 ```
-$ npm install doxmate -g
+npm install doxmate -g
 ```
 ## Usage
-
 此处将以doxmate项目自身作为例子：
-
 ```
 // 签出doxmate项目
-$ git clone git://github.com/JacksonTian/doxmate.git ~/git/doxmate
-// 去到项目目录
-$ cd doxmate
-$ doxmate build
-// 在docs目录下将会得到文档
-$ open ~/git/doxmate/doc/index.html
+git clone git://github.com/JacksonTian/doxmate.git ~/git/doxmate
+// 指定项目路径
+doxmate -i ~/git/doxmate
+// 在doc目录下将会得到文档
+open ~/git/doxmate/doc/index.html
 // 或者 -o folder，可以将文档生成到指定的目录下
-$ doxmate build -o ~/output
-```
-
-### 选择模版
-
-```
-// 带上-s参数后，可以选择doxmate提供的几种模板
-$ doxmate build -s wordpress
-```
-
-### 自定义模版
-如果doxmate提供的几个模板不能满足你的需求
-
-```
-// 查看doxmate目前已有的模板
-$ doxmate theme list
-// 在当前项目目录导出主题模板
-$ doxmate theme export
-// 将会在当前目录下生成{doxmate-templates/主题名}的目录
-// 带上-s参数后，可以选择doxmate提供的几种模板
-$ doxmate theme export -s pomelo
-// 通过doxmate build创建文档的时，优先读取该目录
-// 导出主题模板后，自行修改，即可实现自定义模板的目的
+doxmate -i ~/git/doxmate -o ~/output
 ```
 ## 查看文档效果
 通过将生成的文档放到gh-pages分支中，可以通过链接<http://jacksontian.github.com/doxmate>直接查看效果。
 
-目前提供三种模板
+## 选择模版
+```
+// 不带-s参数会采用默认模版
+doxmate -i ~/git/doxmate -o ~/output
+// 带上-s参数后，可以选择doxmate提供的几种模板
+doxmate -i ~/git/doxmate -o ~/output -s wordpress
+```
+目前提供两种模板
 
-### 默认风格
+- 默认风格
 ![defautl 默认风格](https://raw.github.com/JacksonTian/doxmate/master/doc/default_style.png)
-
-### wordpress风格
+- wordpress风格
 ![wordpress](https://raw.github.com/JacksonTian/doxmate/master/doc/wordpress_style.png)
-
-### pomelo风格
 
 ## Github与CommonJS规范
 - 每个github项目下应该有一个README.md文件
@@ -72,21 +49,17 @@ Doxmate将会扫描项目下的README.md和doc目录下的md文件，通过markd
 
 ```
  project  : doxmate
- repo age : 11 months
- active   : 21 days
- commits  : 89
- files    : 94
- authors  : 
-    71  Jackson Tian            79.8%
-    10  youxiachai              11.2%
-     5  Lei Zongmin             5.6%
-     3  aleafs                  3.4%
+ repo age : 4 weeks
+ active   : 14 days
+ commits  : 54
+ files    : 28
+ authors  :
+    49	Jackson Tian            90.7%
+     5	Lei Zongmin             9.3%
 
 ```
 
 ## License (MIT)
-MIT许可，请自由享用。
-
 ```
 Copyright (c) 2012 Jackson Tian
 http://weibo.com/shyvo
@@ -110,8 +83,3 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTIO
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
-
-## 捐赠
-如果您觉得本模块对您有帮助，欢迎请作者一杯咖啡
-
-[![捐赠doxmate](https://img.alipay.com/sys/personalprod/style/mc/btn-index.png)](https://me.alipay.com/jacksontian)
