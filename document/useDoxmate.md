@@ -44,3 +44,13 @@ doc 目录下md文件排序 :
             return a_pri > b_pri ? -1 : 1;
           });
 ```
+
+
+http://api.guanyisoft.com/
+
+http://gop.guanyierp.com/
+
+http://oms.guanyisoft.com/
+
+http://wiki.open.qq.com/wiki/website/%E7%BD%91%E7%AB%99%E6%8E%A5%E5%85%A5wiki%E7%B4%A2%E5%BC%95
+
